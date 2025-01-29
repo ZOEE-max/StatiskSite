@@ -83,21 +83,24 @@ body {
 
 
 .product_list_container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
-    padding: 20px;
     max-width: 1200px;
     margin: auto;
 }
+/* _________________________________ */
 
-/* Styling af produktkort */
 .product_card {
+    flex: 1 1 calc(25% - 20px); 
     text-decoration: none;
     color: black;
     padding: 15px;
     text-align: center;
     transition: transform 0.2s, box-shadow 0.3s;
+    max-width: 300px;
+    position: relative;
 }
 
 .product_card img {
@@ -106,7 +109,63 @@ body {
     object-fit: cover; 
     border-radius: 5px; 
 }
+
 .product_card:hover {
     transform: scale(1.05);
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+.product_card.out-of-stock {
+    opacity: 0.5;  /* Gør produktet lidt gennemsigtigt */
+    pointer-events: none;  /* Forhindrer klik på udsolgte produkter */
+}
+
+.product_card.out-of-stock::after {
+    content: "Udsolgt";
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(255, 0, 0, 0.8);
+    color: white;
+    padding: 5px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    z-index: 10;  
+}
+.product_card .original-price {
+    text-decoration: line-through;  
+    color: #999;  
+    font-size: 16px;
+}
+
+.product_card .discounted-price {
+    color: #e60000;  
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.product_card .discount-tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background-color: rgba(0, 255, 0, 0.8);  
+    color: white;
+    padding: 5px 10px;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 5px;
+    text-transform: uppercase;  
+    z-index: 10;  /
+}
+
+@media (max-width: 1024px) {
+    .product_card {
+        flex: 1 1 calc(50% - 20px); 
+    }
+}
+
+@media (max-width: 600px) {
+    .product_card {
+        flex: 1 1 100%; 
+    }
 }
