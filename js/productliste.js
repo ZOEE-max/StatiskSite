@@ -4,13 +4,10 @@ fetch(`https://kea-alt-del.dk/t7/api/products/`)
   .then((response) => response.json())
   .then((data) => showList(data));
 
-function showList(data) {
-  console.log(data);
-  //   let markup = "";
-  //  products
-  //     .map((product) => {
-  //       markup +=
-  const markup = data
+function showList(products) {
+  console.log(products);
+
+  const markup = products
     .map(
       (product) =>
         `<div class="product_list_container">
