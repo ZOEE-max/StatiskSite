@@ -8,7 +8,7 @@ function showList(categories) {
   console.log(categories);
 
   const markup = categories
-    .map((category) => `<li> <a href="produktliste.html?" class="category">${category.category}</a></li>`)
+    .map((category) => `<li> <a href="produktliste.html?category=${category.category}"class="category">${category.category}</a></li>`)
 
     .join("");
   console.log(markup);
