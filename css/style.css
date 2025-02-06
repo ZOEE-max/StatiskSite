@@ -82,7 +82,7 @@ body {
 }
 
 
-.product_list_container {
+#product_list_container {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -115,8 +115,8 @@ body {
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
 }
 .product_card.out-of-stock {
-    opacity: 0.5;  /* Gør produktet lidt gennemsigtigt */
-    pointer-events: none;  /* Forhindrer klik på udsolgte produkter */
+    opacity: 0.5;  
+    pointer-events: none;  
 }
 
 .product_card.out-of-stock::after {
@@ -220,6 +220,10 @@ body {
     border: 1px solid #ddd;
     border-radius: 5px;
 }
+.price {
+    font-size: 16px;
+    font-weight: normal;
+  }
 
 /* min kurv---*/
 .add-to-cart {
