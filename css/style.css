@@ -9,6 +9,7 @@ body {
     padding: 0;
     line-height: 1.6;
     text-align: center;
+   
   }
   
   header {
@@ -44,33 +45,49 @@ body {
     color: black; 
 }
 
-.grid-container {
+.grid-container ul {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(3, 1fr); 
+    grid-template-rows: repeat(2, auto); 
     gap: 20px;
-    padding: 20px;
-    max-width: 800px;
-    margin: auto;
+    list-style: none; 
+    padding: 0; 
+    margin-right: 25px;
+    margin-left: 25px;
+  }
+  
+  .grid-container ul li {
+    text-align: center; 
+    padding: 10px; 
+    background-color: #f4f4f4; 
+    border: 1px solid #ccc; 
+    transition: transform 0.2s, background-color 0.2s; 
+  }
+  
+  .grid-container ul li:hover {
+    transform: scale(1.05); 
+    background-color: #d91e2d; 
+    color: white; 
+  }
+  
+  .category {
+    text-decoration: none; 
+    color: inherit; 
+    font-weight: bold; /
+  }
+.category {
+    animation: fadeIn 1s ease-in-out;
 }
 
-.category {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: gray;
-    text-decoration: none;
-    color: white;
-    padding: 20px;
-    border-radius: 5px;
-    font-size: 1.2rem;
-    text-align: center;
-    transition: background-color 0.3s, transform 0.2s;
-    cursor: pointer;
-}
-.category:hover {
-    background-color: rgb(236, 236, 236);
-    color: black;
-    transform: scale(1.05);
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 .kate{
     margin-top: 150px;
@@ -250,5 +267,8 @@ body {
 @media (max-width: 600px) {
     .product_card {
         flex: 1 1 100%; 
+    }
+    .grid-container ul{
+        grid-template-columns: 1fr; 
     }
 }
